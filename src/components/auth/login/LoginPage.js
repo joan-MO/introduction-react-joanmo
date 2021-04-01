@@ -25,7 +25,7 @@ const LoginPage = () => {
     }
   });
 
-  const handleSubmit = async credentials => {
+    const handleSubmit = async credentials => {
     login(credentials).then(() => onLogin());
     resetError();
     setIsLoading(true);
@@ -40,7 +40,6 @@ const LoginPage = () => {
   };
     return (
     <div>
-      <h1>Log in pop-react</h1>
       <LoginForm isLoading={isLoading} onSubmit={handleSubmit} />
       {error && (
         <div onClick={resetError} className="loginPage-error">

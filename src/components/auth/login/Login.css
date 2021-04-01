@@ -1,0 +1,16 @@
+form,
+h1 {
+  position: relative;
+  top: 50%;
+}
+
+form {
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.form-check {
+  margin-top: 10px;
+}

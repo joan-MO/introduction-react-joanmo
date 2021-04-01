@@ -9,11 +9,6 @@ import { AuthContextProvider } from './components/auth/context';
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
-  const ref = React.useRef(null);
-
-  React.useEffect(() => {
-    console.log(ref.current);
-  }, []);
 
   const handleLogin = () => {
     setIsLogged(true);
@@ -31,7 +26,7 @@ function App({ isInitiallyLogged }) {
     <div className="App">
       <AuthContextProvider value={authValue}>
         <Switch>
-          <Route path="/adverts/:advertId">
+          <Route path="/advert/:advertId">
             <AdvertPage />
           </Route>
           <Route path="/new-advert">
