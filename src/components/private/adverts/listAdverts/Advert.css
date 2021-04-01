@@ -1,3 +1,5 @@
-.card {
+.card,
+a {
   top: 10%;
+  text-decoration: none;
 }
