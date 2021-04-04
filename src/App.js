@@ -26,12 +26,12 @@ function App({ isInitiallyLogged }) {
     <div className="App">
       <AuthContextProvider value={authValue}>
         <Switch>
-          <Route path="/advert/:advertId">
+          <PrivateRoute path="/advert/:advertId">
             <AdvertPage />
-          </Route>
-          <Route path="/new-advert">
+          </PrivateRoute>
+          <PrivateRoute path="/new-advert">
             <NewAdvertPage />
-          </Route>
+          </PrivateRoute>
           <Route path="/login" >
             <LoginPage />
           </Route>

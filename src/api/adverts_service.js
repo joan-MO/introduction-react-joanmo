@@ -31,12 +31,6 @@ export const createAdvert = advert => {
       
 };
 
-/*
-export const createLike = tweetId => {
-  const url = `${tweetsBaseUrl}/tweets/${tweetId}/likes`;
-  return client.post(url);
-};
-*/
 export const deleteAdvert = advertId => {
   const url = `${api_url}/v1/adverts/${advertId}`;
   return client.delete(url);
