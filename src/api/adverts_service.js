@@ -12,13 +12,15 @@ export const getAdvertById = advertId=> {
   return client.get(url);
 };
 
-/*
-
-export const createTweet = tweet => {
-  const url = `${tweetsBaseUrl}/tweets`;
-  return client.post(url, tweet);
+export const createAdvert = advert => {
+  const url = `${api_url}/v1/adverts`;
+  return client.post(url, advert, {
+      headers: { "Content-Type": "multipart/form-data" },
+  
+});
 };
 
+/*
 export const createLike = tweetId => {
   const url = `${tweetsBaseUrl}/tweets/${tweetId}/likes`;
   return client.post(url);

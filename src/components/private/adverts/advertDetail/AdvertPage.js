@@ -2,6 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { getAdvertById } from '../../../../api/adverts_service';
 import CardDetail from '../../../shared/CardDetail';
+import { Redirect } from 'react-router';
+import Header from '../../../layout/Header'
+
 
 const AdvertPage = () => {
 
@@ -14,16 +17,19 @@ const AdvertPage = () => {
     React.useEffect(() => {
         getAdvertById(id).then(setAdvert).catch(error => setError(error))
     }, [id])
-   
-    return (  
-        <div className="container">
-            <CardDetail data={advert}/>
-             {error && (
-            <p>
-            {error}
-            </p>
-            )}
-        </div >      
+
+    
+     if (error && error.status === 404) {
+      return <Redirect to="/404" />;
+    }
+
+    return (
+        <div>
+            <Header isLogged onLogout/>
+            <div className="container">
+                <CardDetail data={advert} />
+            </div >
+        </div>      
     )
 }
 

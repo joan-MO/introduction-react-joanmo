@@ -46,7 +46,7 @@ function LoginForm({ onSubmit, isLoading }) {
             />      
         </div>
           <div className="form-group">
-            <label htmlFor="password">Email address</label>
+            <label htmlFor="password">Password: </label>
             <input
             id="password"
             className="form-control"

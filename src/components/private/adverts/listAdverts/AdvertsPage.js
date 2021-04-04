@@ -3,6 +3,7 @@ import './Advert.css';
 import { getAll } from '../../../../api/adverts_service';
 import EmptyList from './EmptyList'
 import Card from '../../../shared/Card'
+import Header from '../../../layout/Header'
 
 const AdvertsPage = () => {
 
@@ -13,8 +14,11 @@ const AdvertsPage = () => {
   }, [])
   
   return (
+    <div>
+      <Header isLogged onLogout/>
     <div className="container">
       {adverts.length ? <Card adverts={adverts} /> : <EmptyList />}
+      </div>
     </div>
     )
 }
