@@ -13,11 +13,22 @@ export const getAdvertById = advertId=> {
 };
 
 export const createAdvert = advert => {
+
   const url = `${api_url}/v1/adverts`;
-  return client.post(url, advert, {
-      headers: { "Content-Type": "multipart/form-data" },
+  const file = new Blob([advert.photo], { type: 'multipart/form-data' });
+  const data = new FormData();
+
+  if (advert.photo) {
+    data.append('photo', file);
+  }
   
-});
+  data.append('name', advert.name);
+  data.append('sale', advert.sale);
+  data.append('price', advert.price);
+  data.append('tags', advert.tags);
+
+  return client.post(url, data);
+      
 };
 
 /*
@@ -29,4 +40,9 @@ export const createLike = tweetId => {
 export const deleteAdvert = advertId => {
   const url = `${api_url}/v1/adverts/${advertId}`;
   return client.delete(url);
+};
+
+export const getTags = () => {
+  const url = `${api_url}/v1/adverts/tags`;
+  return client.get(url);
 };

@@ -1,67 +1,51 @@
 import React from 'react';
+import { getTags } from '../../../../api/adverts_service';
 
-const NewFormAdvert = ({onSubmit}) => {
+
+const NewFormAdvert = ({ onSubmit }) => {
+  const [tagList, setTagList] = React.useState([]);
     const [content, setContent] = React.useState({
         name: '',
-        sale: Boolean,
+        sale: '',
         price: '',
         tags: '',
         photo: ''
     });
 
+  React.useEffect(() => {
+    getTags().then(setTagList);
+  }, [])
 
   const changeName = event => {
       const newContent = { ...content, name: event.target.value };
       setContent(newContent);
     };
 
-    const changeSale = event => {
-      const newCredentials = { ...content, sale: event.target.value };
+  const changeSale = event => {  
+      const newCredentials = { ...content, sale: event.target.value};
       setContent(newCredentials);
     };
     
     
   const changePrice = event => {
-      const newContent = { ...content, price: event.target.value };
+      const newContent = { ...content, price: parseInt(event.target.value) };
       setContent(newContent);
     };
 
-    const changeTags = event => {
-      const newCredentials = { ...content, tags: event.target.value };
+  const changeTags = event => {
+      const newCredentials = { ...content, tags: Array.from(event.target.selectedOptions, item => item.value) };
       setContent(newCredentials);
      };
 
-    const changePhoto = e => {
+  const changePhoto = event => {
+      
+    const img = event.target.files[0]
 
-        /*
-        const img = event.target.files[0]
-        
-       let formData = new FormData();
-    formData.append('file', img);
-      const newCredentials = { ...content, photo: formData };
-      setContent(newCredentials);*/
-        
-      const file = e.target.files[0];
+    const newCredentials = { ...content, photo: img };
+    setContent(newCredentials);
 
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-
-        reader.onload = (event) => {
-            resolve(event.target.result);
-        };
-
-        reader.onerror = (err) => {
-            reject(err);
-        };
-
-        reader.readAsDataURL(file);
-        const newCredentials = { ...content, photo: reader };
-              setContent(newCredentials);
-
-    });
-    };
-
-
+  };
+    
     
     const submitForm = event => {
         event.preventDefault();
@@ -77,7 +61,7 @@ const NewFormAdvert = ({onSubmit}) => {
     <div className="container-fluid form-content">
     <div className="row justify-content-center">
     <div className="col-sm "> 
-       <h1>Log in pop-react</h1>
+       <h1>Create advert</h1>
       <form onSubmit={submitForm} encType="multipart/form-data">
         <div className="form-group">
             <label htmlFor="name">Name: </label>
@@ -112,17 +96,12 @@ const NewFormAdvert = ({onSubmit}) => {
             required
             />      
         </div>
-        <div className="form-group">
-            <label htmlFor="tags">Tags: </label>
-            <input
-            className="form-control"
-            id="tags"
-            type="text"
-            name="tags"
-            value={tags}
-            onChange={changeTags}
-            required
-            />      
+        <div className="form-group mt-2">
+          <select className="fom-control" multiple onChange={changeTags}>
+             {tagList.map(tag =>
+               <option value={tag} key={tag}>{tag}</option>
+             )}
+          </select> 
         </div>
            <div className="form-group">
             <label htmlFor="photo">Photos: </label>
@@ -132,13 +111,12 @@ const NewFormAdvert = ({onSubmit}) => {
             type="file"
             name="photo"
             onChange={changePhoto}
-            required
             />      
         </div>
         <br />
       <button
         className="btn btn-primary"
-        disabled={!name || !sale || !price || !tags }
+        
       >
         Log in
       </button>

@@ -3,6 +3,7 @@ import './Advert.css';
 import { getAll } from '../../../../api/adverts_service';
 import EmptyList from './EmptyList'
 import Card from '../../../shared/Card'
+import Filters from '../../../shared//Filters'
 import Header from '../../../layout/Header'
 
 const AdvertsPage = () => {
@@ -12,10 +13,12 @@ const AdvertsPage = () => {
   React.useEffect(() => {
     getAll().then(setAdverts);
   }, [])
-  
+
+
   return (
     <div>
-      <Header isLogged onLogout/>
+      <Header isLogged onLogout />
+      <Filters />
     <div className="container">
       {adverts.length ? <Card adverts={adverts} /> : <EmptyList />}
       </div>

@@ -11,7 +11,7 @@ const NewAdvertPage = () => {
   const [createdAdvert, setCreatedAdvert] = React.useState(null);
 
     const handleSubmit = async newAdvert => {
-      console.log(newAdvert);
+      //console.log(newAdvert);
     try {
       
       const advert = await createAdvert(newAdvert);
