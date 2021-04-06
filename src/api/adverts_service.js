@@ -13,21 +13,8 @@ export const getAdvertById = advertId=> {
 };
 
 export const createAdvert = advert => {
-
   const url = `${api_url}/v1/adverts`;
-  const file = new Blob([advert.photo], { type: 'multipart/form-data' });
-  const data = new FormData();
-
-  if (advert.photo) {
-    data.append('photo', file);
-  }
-  
-  data.append('name', advert.name);
-  data.append('sale', advert.sale);
-  data.append('price', advert.price);
-  data.append('tags', advert.tags);
-
-  return client.post(url, data);
+  return client.post(url, advert);
       
 };
 

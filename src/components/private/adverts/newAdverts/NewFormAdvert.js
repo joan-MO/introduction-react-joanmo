@@ -53,9 +53,7 @@ const NewFormAdvert = ({ onSubmit }) => {
     };
 
     const { name, sale, price, tags } = content;
-        console.log(content);
-
-
+      
     return (
     <div>
     <div className="container-fluid form-content">
@@ -97,7 +95,7 @@ const NewFormAdvert = ({ onSubmit }) => {
             />      
         </div>
         <div className="form-group mt-2">
-          <select className="fom-control" multiple onChange={changeTags}>
+          <select className="fom-control" multiple onChange={changeTags} required>
              {tagList.map(tag =>
                <option value={tag} key={tag}>{tag}</option>
              )}
@@ -116,9 +114,9 @@ const NewFormAdvert = ({ onSubmit }) => {
         <br />
       <button
         className="btn btn-primary"
-        
+        disabled={!name || !sale || !price || !tags}
       >
-        Log in
+        Accept
       </button>
     </form>
     </div>

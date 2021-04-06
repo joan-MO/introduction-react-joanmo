@@ -22,7 +22,7 @@ const Card = ({ adverts }) => {
                 <h5 className="card-title">{advert.name}</h5>
                 <p className="card-text">{advert.price}</p>
                 <p className="card-text">{advert.sale === true ? 'venta' : 'compra'}</p>
-                <p className="card-text" style={{fontWeight:"bold"}}>{advert.tags}</p>
+                <p className="card-text" style={{fontWeight:"bold"}}>{advert.tags.length === 1 ? advert.tags : " "+ advert.tags}</p>
                 <button className="btn btn-primary" /*onClick={()=>showDetail(advert.id)}*/>Show detail</button>
              </div>
              </div>   
