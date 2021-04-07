@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const EmptyList = () => {
+const EmptyList = ({notResult}) => {
     return (
         <div>
-           <Link to="/new-advert" className="btn btn-primary mt-5">Create new advert</Link>
+            {!notResult ? <Link to="/new-advert" className="btn btn-primary mt-5">Create new advert</Link> : <p>Not result found</p>}
         </div>
 
     )

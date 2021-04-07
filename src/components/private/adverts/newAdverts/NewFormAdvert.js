@@ -22,8 +22,8 @@ const NewFormAdvert = ({ onSubmit }) => {
     };
 
   const changeSale = event => {  
-      const newCredentials = { ...content, sale: event.target.value};
-      setContent(newCredentials);
+      const newContent = { ...content, sale: event.target.value};
+      setContent(newContent);
     };
     
     
@@ -33,16 +33,16 @@ const NewFormAdvert = ({ onSubmit }) => {
     };
 
   const changeTags = event => {
-      const newCredentials = { ...content, tags: Array.from(event.target.selectedOptions, item => item.value) };
-      setContent(newCredentials);
+      const newContent = { ...content, tags: Array.from(event.target.selectedOptions, item => item.value) };
+      setContent(newContent);
      };
 
   const changePhoto = event => {
       
     const img = event.target.files[0]
 
-    const newCredentials = { ...content, photo: img };
-    setContent(newCredentials);
+    const newContent = { ...content, photo: img };
+    setContent(newContent);
 
   };
     

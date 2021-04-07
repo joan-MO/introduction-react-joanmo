@@ -11,7 +11,7 @@ const Card = ({ adverts }) => {
      history.push(`/advert/${id}`);
    };
   */
-  
+    
   return (
         <div className="row">
           {adverts.map(advert =>
