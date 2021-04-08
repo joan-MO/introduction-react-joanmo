@@ -42,6 +42,7 @@ const AdvertsPage = () => {
     if (advertFilter.minPrice && advertFilter.maxPrice) {
           filters.price = [advertFilter.minPrice, advertFilter.maxPrice]
     }
+    
     getAll(filters).then(setAdverts);
     setnotResult(true)
  
