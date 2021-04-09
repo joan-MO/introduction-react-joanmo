@@ -21,7 +21,7 @@ const Header = ({isLogged, onLogout }) => {
             </div>
         </Link>
         
-        <form className="form-inline my-2 my-lg-0 bg-dark">
+        <div className="form-inline my-2 my-lg-0 bg-dark">
         <Link
           to="/new-advert"
           variant="primary"
@@ -43,7 +43,7 @@ const Header = ({isLogged, onLogout }) => {
             Login
           </button>
             )}
-        </form>
+        </div>
       </nav>
   );
 };

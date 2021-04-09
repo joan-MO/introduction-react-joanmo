@@ -11,8 +11,8 @@ const CardDetail = ({ data }) => {
   const handleShow = () => setShow(true);
   const image_url = process.env.REACT_APP_API_BASE_URL;
   const history = useHistory();
-  const deleteElement = () => {
-      deleteAdvert(data.id);
+  const deleteElement = async () => {
+      await deleteAdvert(data.id);
       history.push('/adverts');
   };
   

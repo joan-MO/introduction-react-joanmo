@@ -28,7 +28,8 @@ const NewFormAdvert = ({ onSubmit }) => {
     
     
   const changePrice = event => {
-      const newContent = { ...content, price: parseInt(event.target.value) };
+      var value = parseInt(event.target.value) || 0;
+      const newContent = { ...content, price: value };
       setContent(newContent);
     };
 
