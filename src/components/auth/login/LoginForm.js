@@ -28,7 +28,6 @@ function LoginForm({ onSubmit, isLoading }) {
   const { email, password } = credentials;
 
     return (
-    <div className="container-fluid form-content">
     <div className="row justify-content-center">
     <div className="col-sm "> 
        <h1>Log in pop-react</h1>
@@ -69,7 +68,6 @@ function LoginForm({ onSubmit, isLoading }) {
         Log in
       </button>
     </form>
-    </div>
     </div>
     </div>
   );

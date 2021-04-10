@@ -7,6 +7,8 @@ import Filters from '../../../shared//Filters'
 import Header from '../../../layout/Header'
 import { useHistory } from 'react-router-dom';
 import storage from '../../../../utils/storage';
+import filtersAdverts from '../../../../utils/filters';
+
 
 const AdvertsPage = ({...props}) => {
 
@@ -35,29 +37,7 @@ const AdvertsPage = ({...props}) => {
  
     let filters = {}
     
-    if (advertFilter.name) {
-      filters.name = advertFilter.name
-    }
-        
-    if (advertFilter.sale) {
-      filters.sale = advertFilter.sale
-    }
-
-    if (advertFilter.tags) {
-      filters.tags = advertFilter.tags
-    }
-
-    if (advertFilter.minPrice) {
-      filters.price = advertFilter.minPrice
-    }
-
-    if (advertFilter.maxPrice) {
-      filters.price = advertFilter.maxPrice
-    }
-
-    if (advertFilter.minPrice && advertFilter.maxPrice) {
-      filters.price = [advertFilter.minPrice, advertFilter.maxPrice]
-    }
+    filtersAdverts(filters, advertFilter)
     
     //getAll(filters).then(setAdverts)
     

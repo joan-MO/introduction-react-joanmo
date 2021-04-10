@@ -40,12 +40,11 @@ const LoginPage = () => {
     }
   };
     return (
-    <div>
+    <div className="container-fluid form-content">
       <LoginForm isLoading={isLoading} onSubmit={handleSubmit} />
-      {error && (
-        <div onClick={resetError} className="loginPage-error">
-          {error.message}
-        </div>
+        {error && (
+          
+          <p className="bg-danger text-center" style={{ color: "white", position:"relative", top:"150px"}}>{error.message}  { error.status}</p>
       )}
     </div>
 
