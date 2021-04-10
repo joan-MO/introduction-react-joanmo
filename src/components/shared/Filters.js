@@ -71,11 +71,15 @@ const Filters = ({ onSubmit, resetFilters }) => {
         
         <div className="form-check form-check-inline">
         <input className="form-check-input" type="radio" name="sale" id="inlineRadio1" value="true" onChange={changeSale}/>
-        <label className="form-check-label" htmlFor="inlineRadio1">Venta</label>
+        <label className="form-check-label" htmlFor="inlineRadio1">sale</label>
         </div>
         <div className="form-check form-check-inline">
         <input className="form-check-input" type="radio" name="sale" id="inlineRadio2" value="false" onChange={changeSale}/>
-        <label className="form-check-label" htmlFor="inlineRadio2">Compra</label>
+        <label className="form-check-label" htmlFor="inlineRadio2">buy</label>
+        </div>
+        <div className="form-check form-check-inline">
+        <input className="form-check-input" type="radio" name="sale" id="inlineRadio3" value="" onChange={changeSale}/>
+        <label className="form-check-label" htmlFor="inlineRadio3">all</label>
         </div>
         <div className="form-group col-2">
             <label htmlFor="price">Price Min: </label>

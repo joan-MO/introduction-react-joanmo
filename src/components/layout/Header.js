@@ -4,15 +4,12 @@ import { logout } from '../../api/auth';
 import { useHistory } from 'react-router-dom';
 
 const Header = ({isLogged, onLogout }) => {
-
-    
   const history = useHistory();  
   const handleLogoutClick = () => {
-      logout().then(onLogout);
-      history.push('/login')
+    logout().then(onLogout);
+    history.push('/login')
   };
   
-
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link to="/" style={{marginLeft:"10px"}}>
@@ -31,6 +28,7 @@ const Header = ({isLogged, onLogout }) => {
           New Advert
         </Link>
             {isLogged ? (
+              
           <button className="btn btn-primary" onClick={handleLogoutClick}>
             Log out
           </button>

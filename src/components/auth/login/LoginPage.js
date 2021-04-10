@@ -2,7 +2,8 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import { login } from '../../../api/auth';
 
-import {useAuthContext } from '../context';
+import { useAuthContext } from '../context';
+
 import { useHistory, useLocation } from 'react-router-dom';
 
 
@@ -26,7 +27,7 @@ const LoginPage = () => {
   });
 
     const handleSubmit = async credentials => {
-    login(credentials).then(() => onLogin());
+    //login(credentials).then(() => onLogin());
     resetError();
     setIsLoading(true);
     try {

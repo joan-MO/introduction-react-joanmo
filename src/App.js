@@ -33,10 +33,10 @@ function App({ isInitiallyLogged }) {
             <NewAdvertPage />
           </PrivateRoute>
           <Route path="/login" >
-            <LoginPage />
+            {isLogged ? <AdvertsPage isLogged={isLogged} onLogout={handleLogout}/> : <LoginPage />}
           </Route>
           <PrivateRoute path="/adverts">
-            <AdvertsPage />
+            <AdvertsPage isLogged={isLogged} onLogout={handleLogout}/>
           </PrivateRoute>
           <Route path="/404">
             <NotFoundPage />

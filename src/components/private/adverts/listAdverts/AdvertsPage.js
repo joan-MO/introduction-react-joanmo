@@ -8,7 +8,7 @@ import Header from '../../../layout/Header'
 import { useHistory } from 'react-router-dom';
 import storage from '../../../../utils/storage';
 
-const AdvertsPage = () => {
+const AdvertsPage = ({...props}) => {
 
   //const initialData = storage.get('filtersStorage') || [];
   const [adverts, setAdverts] = React.useState([]);
@@ -31,6 +31,8 @@ const AdvertsPage = () => {
   
   const handleSubmit = async advertFilter => {
 
+    try {
+ 
     let filters = {}
     
     if (advertFilter.name) {
@@ -62,7 +64,11 @@ const AdvertsPage = () => {
     const advertsFilters = await getAll(filters);
     setAdverts(advertsFilters)
     storage.set('filtersStorage', advertsFilters);
-    setnotResult(true)
+    setnotResult(true)     
+    } catch (error) {
+      console.error(error);
+    }
+
   };
 
   const resetAdverts = () => {
@@ -76,7 +82,7 @@ const AdvertsPage = () => {
 
   return (
     <div>
-      <Header isLogged onLogout />
+      <Header {...props} />
       <Filters onSubmit={handleSubmit} resetFilters={resetAdverts} />
       
     <div className="container">
