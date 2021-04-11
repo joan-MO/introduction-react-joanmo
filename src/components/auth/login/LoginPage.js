@@ -1,9 +1,7 @@
 import React from 'react';
 import LoginForm from './LoginForm';
 import { login } from '../../../api/auth';
-
 import { useAuthContext } from '../context';
-
 import { useHistory, useLocation } from 'react-router-dom';
 
 
@@ -40,8 +38,8 @@ const LoginPage = () => {
     }
   };
     return (
-    <div className="container-fluid form-content">
-      <LoginForm isLoading={isLoading} onSubmit={handleSubmit} />
+      <div className="container-fluid form-content">
+        <LoginForm isLoading={isLoading} onSubmit={handleSubmit} />
         {error && (
           
           <p className="bg-danger text-center" style={{ color: "white", position:"relative", top:"150px"}}>{error.message}  { error.status}</p>
