@@ -17,8 +17,6 @@ export const getAdvertById = advertId=> {
   return client.get(url);
 };
 
-
-
 export const createAdvert = advert => {
   const url = `${api_url}/v1/adverts`;
   return client.post(url, advert);
